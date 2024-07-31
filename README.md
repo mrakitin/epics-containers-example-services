@@ -4,7 +4,7 @@ This repository holds the a definition of example beamline t01 IOC Instances and
 
 The top level compose.yml file represents a set of IOCs and other services that would be deployed to a single IOC server.
 
-For this example we have a single compose file. However, if you wanted to keep all IOCs for a beamline in a single repo but deploy to multiple servers, then each server would have its own named compose file.
+For this example we have a single compose file. However, if you wanted to keep all IOCs for a beamline in a single repo but deploy to multiple servers, then each server could have its own named compose file, or possibly you could use a single compose file with a profile for each server.
 
 ## Initial Setup
 
@@ -79,7 +79,7 @@ The gold standard for orchestrating these containers in production is Kubernetes
 
 # Compose goals
 
-These goals for switching to compose (from beskope code in the `ec` tool) have all been met:
+These goals for switching to compose (from bespoke code in the `ec` tool) have all been met:
 
 - be as DRY as possible
 - work with docker-compose controlling either docker or podman
