@@ -13,13 +13,25 @@ entities:
     WIDTH: 1024
     HEIGHT: 1024
 
-  - type: epics.dbpf
-    pv: BL01T-DI-CAM-01:DET:AcquireTime
-    value: "0.1"
+  - type: epics.PostStartupCommand
+    command: |
+      dbpf BL01T-DI-CAM-01:DET:AcquireTime 0.1
+      dbpf BL01T-DI-CAM-01:ARR:EnableCallbacks 1
+      dbpf BL01T-DI-CAM-01:PROC:EnableCallbacks 1
+      dbpf BL01T-DI-CAM-01:ROI:EnableCallbacks 1
+      dbpf BL01T-DI-CAM-01:DET:Acquire 1
 
-  - type: epics.dbpf
-    pv: BL01T-DI-CAM-01:ARR:EnableCallbacks
-    value: "1"
+  - type: ADCore.NDROI
+    PORT: DET.ROI
+    P: BL01T-DI-CAM-01
+    R: ":ROI:"
+    NDARRAY_PORT: DET.DET
+
+  - type: ADCore.NDProcess
+    PORT: DET.PROC
+    P: BL01T-DI-CAM-01
+    R: ":PROC:"
+    NDARRAY_PORT: DET.ROI
 
   - type: ADCore.NDPvaPlugin
     PORT: DET.PVA
@@ -37,12 +49,6 @@ entities:
     NELEMENTS: 1048576
     FTVL: CHAR
 
-  - type: ADCore.NDROI
-    PORT: DET.ROI
-    P: BL01T-DI-CAM-01
-    R: ":ROI:"
-    NDARRAY_PORT: DET.DET
-
   - type: ADCore.NDStats
     PORT: DET.STAT
     P: BL01T-DI-CAM-01
@@ -51,12 +57,6 @@ entities:
     XSIZE: 1024
     YSIZE: 1024
     HIST_SIZE: 20
-
-  - type: ADCore.NDProcess
-    PORT: DET.PROC
-    P: BL01T-DI-CAM-01
-    R: ":PROC:"
-    NDARRAY_PORT: DET.ROI
 
   - type: ADCore.NDFileHDF5
     PORT: DET.HDF
