@@ -1,6 +1,6 @@
 # Beamline t01 IOC Instances and Services
 
-This repository holds the a definition of example beamline t01 IOC Instances and services. It is a example of how to deploy epics-containers IOCs using docker compose for those facilities that are not using Kubernetes. It can also deploy it's set of IOCs to a developer workstation for testing / experimentation.
+This repository holds the a definition of example beamline t01 IOC Instances and services. It is a example of how to deploy epics-containers IOCs using docker compose for those facilities that are not using Kubernetes. It can also deploy its set of IOCs to a developer workstation for testing / experimentation.
 
 The top level compose.yml file represents a set of IOCs and other services that would be deployed to a single IOC server.
 
