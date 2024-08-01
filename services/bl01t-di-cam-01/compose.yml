@@ -31,4 +31,4 @@ configs:
 
 include:
   - path:
-    - include/networks.yml
+    - ../../include/networks.yml

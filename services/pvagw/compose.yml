@@ -53,3 +53,7 @@ services:
 configs:
   pvagw_config:
     file: ./config
+
+include:
+  - path:
+      ../../include/networks.yml

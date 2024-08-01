@@ -57,3 +57,7 @@ services:
 configs:
   ca-gateway_config:
     file: ./config
+
+include:
+  - path:
+      ../../include/networks.yml
