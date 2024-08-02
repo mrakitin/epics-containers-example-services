@@ -28,6 +28,9 @@ else
     USER_ID=0; USER_GID=0
 fi
 
+# ensure local container users can access X11 server
+xhost +SI:localuser:$(id -un)
+
 # Set up the environment for compose ###########################################
 
 # set user id for the phoebus container for easy X11 forwarding.
