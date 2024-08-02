@@ -4,7 +4,7 @@ services:
 
   # local pvagw for development ################################################
 
-  pvagw-develop: &pvagw
+  pvagw: &pvagw
 
     image: ghcr.io/epics-containers/ec-p4p:4.1.12ec1
 
