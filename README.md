@@ -1,4 +1,4 @@
-# Beamline t01 IOC Instances and Services
+# t01 IOC Instances and Services
 
 This repository holds the a definition of example beamline t01 IOC Instances and services. It is a example of how to deploy epics-containers IOCs using docker compose for those facilities that are not using Kubernetes. It can also deploy its set of IOCs to a developer workstation for testing / experimentation.
 
@@ -17,10 +17,14 @@ Setup command line completion for docker compose (optional):
 # these steps will make cli completion work for zsh
 mkdir -p ~/.oh-my-zsh/completions
 podman completion zsh > ~/.oh-my-zsh/completions/_podman
+# OR
+docker completion zsh > ~/.oh-my-zsh/completions/_docker
 
 # these steps will make cli completion work for bash
 mkdir -p ~/.local/share/bash-completion/completions
 podman completion bash > ~/.local/share/bash-completion/completions/podman
+# OR
+docker completion bash > ~/.local/share/bash-completion/completions/docker
 ```
 
 ## Local Developer Testing Environment
@@ -75,15 +79,15 @@ docker compose --profile deploy -f my_server_01.yml up -d
 
 IMPORTANT: if you are using docker then IOCs deployed this way will automatically be brought up again on server reboot. podman will not do this by default because it is running in user space - there are workarounds for this but podman is not recommended for this purpose.
 
-The gold standard for orchestrating these containers in production is Kubernetes. See https://epics-containers.github.io/main/tutorials/setup_k8s.html. Although compose is really useful for development and testing, Kubernetes is far superior for managing services across a cluster of hosts.
+The gold standard for orchestrating these containers in production is Kubernetes. See https://epics-containers.github.io/main/tutorials/setup_k8s.html. Although compose is really useful for development and testing, Kubernetes is superior for managing services across a cluster of hosts.
 
 # Compose goals
 
-These goals for switching to compose (from beskope code in the `ec` tool) have all been met:
+These goals for switching to compose (from bespoke code in the `ec` tool) have all been met:
 
 - be as DRY as possible
 - work with docker-compose controlling either docker or podman
-- enable isolated testing where PVs are not availble to the whole subnet
+- enable isolated testing where PVs are not available to the whole subnet
 - include separate profiles for:
   - local testing - including phoebus OPI
   - deployment to a beamline server - this would need either:

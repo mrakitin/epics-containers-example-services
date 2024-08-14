@@ -7,22 +7,20 @@ services:
   linux_ioc: &linux_ioc
     labels:
       # a reference to which repository created this IOC
-      ioc_group: bl01t
+      ioc_group: t01
       # lets tools like ec identify which containers are IOCs
       is_ioc: true
       # in K8S each IOC can have an indication of what physical location it
       # should be (used by machine IOCs) this is for parity (but redundant).
       location: localhost
 
-    # NOTE: blank environment vars should be overriden in individual IOCs
+    # NOTE: blank environment vars should be overridden in individual IOCs
     environment:
       IOCSH_PS1:
       IOC_NAME:
-      # a prefix for devIocStats PVs. Configured externally for health_check
-      IOC_PREFIX:
       IOC_LOCATION: localhost
-      BEAMLINE: bl01t
-      IOC_GROUP: bl01t
+      BEAMLINE: t01
+      IOC_GROUP: t01
 
     tty: true
     stdin_open: true
