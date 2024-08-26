@@ -6,7 +6,7 @@ services:
       service: linux_ioc
       file: ../../include/ioc.yml
 
-    image: ghcr.io/epics-containers/ioc-adsimdetector-runtime:2024.6.1
+    image: ghcr.io/epics-containers/ioc-template-example-runtime:3.5.1
 
     labels:
       version: 0.1.0
@@ -17,7 +17,7 @@ services:
       IOC_PREFIX: BL01T-EA-TEST-01
 
     volumes:
-      - ../../opi/iocs/bl01t-ea-test-01:/epics/opi
+      - ../../opi/auto-generated/bl01t-ea-test-01:/epics/opi
 
     configs:
       - source: bl01t-ea-test-01_config

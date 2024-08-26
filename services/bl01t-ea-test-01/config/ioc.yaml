@@ -10,19 +10,19 @@ entities:
     value: GMT0BST
 
   - type: devIocStats.iocAdminSoft
-    IOC: '{{ ioc_name | upper }}'
+    IOC: "{{ ioc_name | upper }}"
 
   - type: epics.StartupCommand
     command: dbLoadRecords("/epics/ioc/config/ioc.db")
 
   - type: epics.dbpf
-    pv: bl01t:IBEK:A
-    value: '2.54'
+    pv: bl01t:A
+    value: "2.54"
 
   - type: epics.dbpf
-    pv: bl01t:IBEK:B
-    value: '2.61'
+    pv: bl01t:B
+    value: "2.61"
 
   - type: epics.PostStartupCommand
     command: |
-      dbgf bl01t:IBEK:SUM
+      dbgf bl01t:SUM
