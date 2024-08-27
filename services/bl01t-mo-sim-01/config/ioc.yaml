@@ -1,6 +1,5 @@
 # yaml-language-server: $schema=https://github.com/epics-containers/ioc-motorsim/releases/download/2024.9.1/ibek.ioc.schema.json
 
-# TODO replace above with the generic IOC schema this IOC is based on
 ioc_name: "{{ _global.get_env('IOC_NAME') }}"
 
 description: REPLACE WITH DESCRIPTION
@@ -15,19 +14,19 @@ entities:
 
   - type: motorSim.simMotorController
     controllerName: sim-controller1
-    numAxes: 2
+    numAxes: 3
     P: "BL01T-MO-SIMC-01:"
 
   - type: motorSim.simMotorAxis
     controller: sim-controller1
-    ADDR: 0
+    ADDR: 1
     M: M1
     DESC: Motor 1
-    home: 0
+    home: 1
 
   - type: motorSim.simMotorAxis
     controller: sim-controller1
-    ADDR: 1
+    ADDR: 2
     M: M2
     DESC: Motor 2
-    home: 0
+    home: 2
