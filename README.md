@@ -23,9 +23,9 @@ mkdir -p ~/.local/share/bash-completion/completions
 podman completion bash > ~/.local/share/bash-completion/completions/podman
 ```
 
-## Local Developer Testing Environment
+## Local Testing Environment
 
-To launch a development environment on a workstation, including phoebus perform the following steps:
+To launch a test environment on a workstation, including phoebus perform the following steps:
 
 ```bash
 git clone https://github.com/epics-containers/example-services.git
@@ -40,12 +40,12 @@ This will launch the following containers:
 - ca-gateway
 - phoebus
 - a motor simulation IOC
-- a area detector simulation IOC
+- an area detector simulation IOC
 - an additional simple example IOC
 
 
 ## Experimenting
-You can now use:
+You can now try the following (we use `ec` as a short alias for `docker compose`):
 
 ```bash
 # use caget/put locally
@@ -57,7 +57,7 @@ ec exec bl01t-ea-test-01 bash
 export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
-# attach to logs of a service
+# attach to logs of a service (-f follows the logs, use ctrl-c to exit)
 ec logs bl01t-di-cam-01 -f
 # stop a service
 ec stop bl01t-di-cam-01
@@ -77,6 +77,9 @@ ec down
 ```
 
 # Deploy To Beamline Servers
+
+TODO: this is work in progress - we have not yet created appropriate ca-gateway settings for this.
+
 To deploy IOCs to a server, clone this repo and run the following command from the repo root:
 
 ```bash
