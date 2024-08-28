@@ -10,7 +10,7 @@ For this example we have a single compose file. However, if you wanted to keep a
 
 First install Docker and Docker Compose. See https://docs.docker.com/compose/install/.
 
-At DLS you need only run `module load docker-compose` to enable `docker compose` backed by the podman container engine. (see end of this page if you get errors)
+At DLS you need only run `module load docker-compose` to enable `docker compose` backed by the podman container engine. (see the end of this page if you get errors)
 
 Setup command line completion for docker compose (optional):
 ```bash
@@ -28,13 +28,20 @@ podman completion bash > ~/.local/share/bash-completion/completions/podman
 To launch a development environment on a workstation, including phoebus perform the following steps:
 
 ```bash
-git clone git@github.com:gilesknap/bl01t.git
-cd bl01t
+git clone https://github.com/epics-containers/example-services.git
+cd example-services
 source ./environment.sh
 ec up -d
 ```
 
 NOTE: -d detaches from the containers. You may omit this if you would prefer to follow the logs of all the containers - these combinded logs include a colour coded prefix to make them more legible.
+
+This will launch the following containers:
+- ca-gateway
+- phoebus
+- a motor simulation IOC
+- a area detector simulation IOC
+- an additional simple example IOC
 
 
 ## Experimenting
@@ -43,11 +50,19 @@ You can now use:
 ```bash
 # use caget/put locally
 export EPICS_CA_ADDR_LIST=127.0.0.1
-caget BL01T-EA-TST-01:DET:MaxSizeX_RBV
+caget BL01T-DI-CAM-01:DET:Acquire_RBV
+
+# OR if you don't have caget/put locally then use one of the containers instead:
+ec exec bl01t-ea-test-01 bash
+export EPICS_CA_ADDR_LIST=127.0.0.1
+caget BL01T-DI-CAM-01:DET:Acquire_RBV
+
 # attach to logs of a service
 ec logs bl01t-di-cam-01 -f
 # stop a service
 ec stop bl01t-di-cam-01
+# restart a service
+ec start bl01t-di-cam-01
 # attach to a service stdio
 ec attach bl01t-di-cam-01
 # exec a process in a service
