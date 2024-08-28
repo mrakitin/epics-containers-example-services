@@ -77,6 +77,9 @@ ec down
 ```
 
 # Deploy To Beamline Servers
+
+TODO: this is work in progress - we have not yet created appropriate ca-gateway settings for this.
+
 To deploy IOCs to a server, clone this repo and run the following command from the repo root:
 
 ```bash
