@@ -8,7 +8,7 @@ services:
     labels:
       # a reference to which repository created this IOC
       ioc_group: bl01t
-      # lets tools like ec identify which containers are IOCs
+      # let tools identify which containers are IOCs
       is_ioc: true
       # in K8S each IOC can have an indication of what physical location it
       # should be (used by machine IOCs) this is for parity (but redundant).
