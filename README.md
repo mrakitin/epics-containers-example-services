@@ -12,7 +12,22 @@ First install Docker and Docker Compose. See https://docs.docker.com/compose/ins
 
 At DLS you need only run `module load docker-compose` to enable `docker compose` backed by the podman container engine. (see the end of this page if you get errors)
 
-Setup command line completion for docker compose (optional):
+Setup command line completion for docker compose (optional). Note - using the short alias `dc` for `docker compose` will most likely not work with auto completion in bash. Using zsh instead of bash will give you completion even with aliasing.
+
+Command line completion is very helpful as it will help you find the correct service names and commands.
+
+Command line completion for docker:
+```bash
+# these steps will make cli completion work for zsh
+mkdir -p ~/.oh-my-zsh/completions
+docker completion zsh > ~/.oh-my-zsh/completions/_docker
+
+# these steps will make cli completion work for bash
+mkdir -p ~/.local/share/bash-completion/completions
+docker completion bash > ~/.local/share/bash-completion/completions/docker
+```
+
+Command line completion for podman:
 ```bash
 # these steps will make cli completion work for zsh
 mkdir -p ~/.oh-my-zsh/completions
@@ -31,7 +46,7 @@ To launch a test environment on a workstation, including phoebus perform the fol
 git clone https://github.com/epics-containers/example-services.git
 cd example-services
 source ./environment.sh
-ec up -d
+dc up -d
 ```
 
 NOTE: -d detaches from the containers. You may omit this if you would prefer to follow the logs of all the containers - these combinded logs include a colour coded prefix to make them more legible.
@@ -45,7 +60,7 @@ This will launch the following containers:
 
 
 ## Experimenting
-You can now try the following (we use `ec` as a short alias for `docker compose`):
+You can now try the following (we use `dc` as a short alias for `docker compose`):
 
 ```bash
 # use caget/put locally
@@ -53,27 +68,27 @@ export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # OR if you don't have caget/put locally then use one of the containers instead:
-ec exec bl01t-ea-test-01 bash
+dc exdc bl01t-ea-test-01 bash
 export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # attach to logs of a service (-f follows the logs, use ctrl-c to exit)
-ec logs bl01t-di-cam-01 -f
+dc logs bl01t-di-cam-01 -f
 # stop a service
-ec stop bl01t-di-cam-01
+dc stop bl01t-di-cam-01
 # restart a service
-ec start bl01t-di-cam-01
+dc start bl01t-di-cam-01
 # attach to a service stdio
-ec attach bl01t-di-cam-01
-# exec a process in a service
-ec exec bl01t-di-cam-01 bash
+dc attach bl01t-di-cam-01
+# exdc a process in a service
+dc exdc bl01t-di-cam-01 bash
 # delete a service (deletes the container)
-ec down bl01t-di-cam-01
+dc down bl01t-di-cam-01
 # create and launch a single service (plus its dependencies)
-ec up bl01t-di-cam-01 -d
+dc up bl01t-di-cam-01 -d
 # close down and delete all the containers
 # volumes are not deleted to preserve the data
-ec down
+dc down
 ```
 
 # Deploy To Beamline Servers
