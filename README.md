@@ -49,7 +49,7 @@ source ./environment.sh
 dc up -d
 ```
 
-NOTE: -d detaches from the containers. You may omit this if you would prefer to follow the logs of all the containers - these combinded logs include a colour coded prefix to make them more legible.
+NOTE: -d detaches from the containers. You may omit this if you would prefer to follow the logs of all the containers - these combined logs include a colour coded prefix to make them more legible.
 
 This will launch the following containers:
 - ca-gateway
@@ -68,7 +68,7 @@ export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # OR if you don't have caget/put locally then use one of the containers instead:
-dc exdc bl01t-ea-test-01 bash
+dc exec bl01t-ea-test-01 bash
 export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
@@ -80,8 +80,8 @@ dc stop bl01t-di-cam-01
 dc start bl01t-di-cam-01
 # attach to a service stdio
 dc attach bl01t-di-cam-01
-# exdc a process in a service
-dc exdc bl01t-di-cam-01 bash
+# exec a process in a service
+dc exec bl01t-di-cam-01 bash
 # delete a service (deletes the container)
 dc down bl01t-di-cam-01
 # create and launch a single service (plus its dependencies)
@@ -112,11 +112,11 @@ The gold standard for orchestrating these containers in production is Kubernetes
 
 # Compose goals
 
-These goals for switching to compose (from beskope code in the `ec` tool) have all been met:
+These goals for switching to compose (from bespoke code in the `ec` tool) have all been met:
 
 - be as DRY as possible
 - work with docker-compose controlling either docker or podman
-- enable isolated testing where PVs are not availble to the whole subnet
+- enable isolated testing where PVs are not available to the whole subnet
 - include separate profiles for:
   - local testing - including phoebus OPI
   - deployment to a beamline server - this would need either:
