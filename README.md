@@ -46,7 +46,7 @@ To launch a test environment on a workstation, including phoebus perform the fol
 git clone https://github.com/epics-containers/example-services.git
 cd example-services
 source ./environment.sh
-dc up -d
+docker compose up -d
 ```
 
 NOTE: -d detaches from the containers. You may omit this if you would prefer to follow the logs of all the containers - these combined logs include a colour coded prefix to make them more legible.
@@ -68,27 +68,27 @@ export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # OR if you don't have caget/put locally then use one of the containers instead:
-dc exec bl01t-ea-test-01 bash
+docker compose exec bl01t-ea-test-01 bash
 export EPICS_CA_ADDR_LIST=127.0.0.1
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # attach to logs of a service (-f follows the logs, use ctrl-c to exit)
-dc logs bl01t-di-cam-01 -f
+docker compose logs bl01t-di-cam-01 -f
 # stop a service
-dc stop bl01t-di-cam-01
+docker compose stop bl01t-di-cam-01
 # restart a service
-dc start bl01t-di-cam-01
+docker compose start bl01t-di-cam-01
 # attach to a service stdio
-dc attach bl01t-di-cam-01
+docker compose attach bl01t-di-cam-01
 # exec a process in a service
-dc exec bl01t-di-cam-01 bash
+docker compose exec bl01t-di-cam-01 bash
 # delete a service (deletes the container)
-dc down bl01t-di-cam-01
+docker compose down bl01t-di-cam-01
 # create and launch a single service (plus its dependencies)
-dc up bl01t-di-cam-01 -d
+docker compose up bl01t-di-cam-01 -d
 # close down and delete all the containers
 # volumes are not deleted to preserve the data
-dc down
+docker compose down
 ```
 
 # Deploy To Beamline Servers
