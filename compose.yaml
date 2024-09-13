@@ -19,7 +19,7 @@ include:
   - services/bl01t-ea-test-01/compose.yml
   - services/bl01t-di-cam-01/compose.yml
   - services/bl01t-mo-sim-01/compose.yml
-  - services/gateway/compose.yml
+  # - services/gateway/compose.yml
   - services/pvagw/compose.yml
 
   # develop profile only

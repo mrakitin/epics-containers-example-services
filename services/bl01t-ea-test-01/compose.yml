@@ -19,6 +19,8 @@ services:
     volumes:
       - ../../opi/auto-generated/bl01t-ea-test-01:/epics/opi
 
+    network_mode: host
+
     configs:
       - source: bl01t-ea-test-01_config
         target: epics/ioc/config
@@ -27,6 +29,6 @@ configs:
   bl01t-ea-test-01_config:
     file: ./config
 
-include:
-  - path:
-      include/networks.yml
+# include:
+#   - path:
+#       include/networks.yml

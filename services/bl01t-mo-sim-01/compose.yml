@@ -22,10 +22,12 @@ services:
       - source:  bl01t-mo-sim-01_config
         target: epics/ioc/config
 
+    network_mode: host
+
 configs:
   bl01t-mo-sim-01_config:
     file: ./config
 
-include:
-  - path:
-      ../../include/networks.yml
+# include:
+#   - path:
+#       ../../include/networks.yml

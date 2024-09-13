@@ -34,11 +34,11 @@ services:
     #    and ca-gateway + pvagw
     # network_mode: host
 
-    networks:
-      - channel_access
-    expose:
-      - "5064-5065/udp"
-      - "5064-5065"
+    # networks:
+    #   - channel_access
+    # expose:
+    #   - "5064-5065/udp"
+    #   - "5064-5065"
 
   # proxy services that each manage an RTEMS hard IOC ##########################
   rtems_ioc:

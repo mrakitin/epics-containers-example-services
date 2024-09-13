@@ -31,6 +31,7 @@ function check_docker {
 # set user id for the phoebus container for easy X11 forwarding.
 if check_docker; then
     USER_ID=$(id -u); USER_GID=$(id -g)
+    USER_ID=0; USER_GID=0
 else
     alias docker=podman
     USER_ID=0; USER_GID=0

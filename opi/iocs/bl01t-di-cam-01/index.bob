@@ -1,0 +1,260 @@
+<display version="2.0.0">
+  <name>bl01t-di-cam-01</name>
+  <x>0</x>
+  <y use_class="true">0</y>
+  <width>388</width>
+  <height>230</height>
+  <grid_step_x>4</grid_step_x>
+  <grid_step_y>4</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <class>TITLE</class>
+    <text>bl01t-di-cam-01</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>388</width>
+    <height>25</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>simDetector</text>
+    <x>23</x>
+    <y>30</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>simDetector.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:DET:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :DET:</text>
+    <x>178</x>
+    <y>30</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDPluginROI</text>
+    <x>23</x>
+    <y>55</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPluginROI.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:ROI:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :ROI:</text>
+    <x>178</x>
+    <y>55</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDPluginProcess</text>
+    <x>23</x>
+    <y>80</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPluginProcess.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:PROC:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :PROC:</text>
+    <x>178</x>
+    <y>80</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDPluginPva</text>
+    <x>23</x>
+    <y>105</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPluginPva.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:PVA:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :PVA:</text>
+    <x>178</x>
+    <y>105</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDPluginStdArrays</text>
+    <x>23</x>
+    <y>130</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPluginStdArrays.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:ARR:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :ARR:</text>
+    <x>178</x>
+    <y>130</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDPluginStats</text>
+    <x>23</x>
+    <y>155</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDPluginStats.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:STAT:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :STAT:</text>
+    <x>178</x>
+    <y>155</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDFileHDF5</text>
+    <x>23</x>
+    <y>180</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDFileHDF5.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:HDF:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :HDF:</text>
+    <x>178</x>
+    <y>180</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>NDFileTIFF</text>
+    <x>23</x>
+    <y>205</y>
+    <width>150</width>
+    <height>20</height>
+    <tooltip>$(text)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>OpenDisplay</name>
+    <actions>
+      <action type="open_display">
+        <file>NDFileTIFF.pvi.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+        <macros>
+          <P>BL01T-DI-CAM-01</P>
+          <R>:TIFF:</R>
+        </macros>
+      </action>
+    </actions>
+    <text>BL01T-DI-CAM-01 :TIFF:</text>
+    <x>178</x>
+    <y>205</y>
+    <width>205</width>
+    <height>20</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>
