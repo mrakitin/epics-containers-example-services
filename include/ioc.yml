@@ -14,6 +14,9 @@ services:
       # should be (used by machine IOCs) this is for parity (but redundant).
       location: localhost
 
+    security_opt:
+      - label=disable
+
     # NOTE: blank environment vars should be overriden in individual IOCs
     environment:
       IOCSH_PS1:

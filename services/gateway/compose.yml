@@ -19,6 +19,9 @@ services:
       - 5064-5065/udp
       - 5064-5065
 
+    security_opt:
+      - label=disable
+
     ports:
       # bind to localhost to isolate channel access to this host only
       - 127.0.0.1:5064:5064/udp
