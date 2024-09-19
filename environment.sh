@@ -31,6 +31,7 @@ function check_docker {
 # set user id for the phoebus container for easy X11 forwarding.
 if check_docker; then
     USER_ID=$(id -u); USER_GID=$(id -g)
+    USER_ID=0; USER_GID=0
 else
     alias docker=podman
     USER_ID=0; USER_GID=0
@@ -49,3 +50,6 @@ export COMPOSE_PROFILES=test
 export EPICS_CA_ADDR_LIST=127.0.0.1
 # make a short alias for docker-compose for convenience
 alias dc='docker compose'
+
+# override to use podman
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
