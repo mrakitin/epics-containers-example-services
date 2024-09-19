@@ -9,14 +9,15 @@ services:
 
     image: ghcr.io/epics-containers/ec-p4p:4.1.12ec1
 
+    security_opt:
+      - label=disable
+
     expose:
-      - 5076/udp
+      - 5076
       - 5075
 
     ports:
-      # bind to localhost to isolate channel access to this host only
-      - 127.0.0.1:5076:5076/udp
-      - 127.0.0.1:5075:5075
+      - 127.0.0.1:5075-5076:5075-5076
 
     restart: unless-stopped
 
@@ -33,7 +34,7 @@ services:
     # PVAcess cannot set up channels into a container yet, so we are using
     # ndstdarrys instead of ndpva for now
     # https://github.com/epics-base/pvAccessCPP/issues/197
-      - removed
+      - test
 
   # per server pvagw for deployment #############################################
   pvagw-deploy:
