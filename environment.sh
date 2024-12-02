@@ -14,6 +14,16 @@ if [ "$0" = "$BASH_SOURCE" ]; then
     exit 1
 fi
 
+# Environment variables for the EPICS IOC ports. Make these unique if you
+# want to run multiple compose beamlines on the same machine
+#
+export EPICS_CA_SERVER_PORT=5064
+export EPICS_CA_REPEATER_PORT=5065
+export EPICS_PVA_SERVER_PORT=5075
+export EPICS_PVA_NAME_SERVERS=localhost:${EPICS_PVA_SERVER_PORT}
+export EPICS_CA_NAME_SERVERS=localhost:${EPICS_CA_SERVER_PORT}
+export EPICS_CA_ADDR_LIST=127.0.0.1
+
 # if there is a docker-compose module then load it
 if [[ $(module avail docker-compose 2>/dev/null) != "" ]] ; then
     module load docker-compose
