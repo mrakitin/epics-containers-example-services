@@ -12,6 +12,10 @@ services:
     ports:
       - 127.0.0.1:${EPICS_PVA_SERVER_PORT}:${EPICS_PVA_SERVER_PORT}
 
+    environment:
+      - EPICS_PVA_SERVER_PORT=${EPICS_PVA_SERVER_PORT}
+      - EPICS_PVAS_SERVER_PORT=${EPICS_PVA_SERVER_PORT}
+
     restart: unless-stopped
 
     networks:
