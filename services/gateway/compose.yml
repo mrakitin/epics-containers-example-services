@@ -33,7 +33,7 @@ services:
       - source: ca-gateway_config
         target: /config
 
-    command: -cip 172.20.255.255 -pvlist /config/pvlist -access /config/access -log /dev/stdout -debug 1
+    command: -cip ${CA_BROADCAST} -pvlist /config/pvlist -access /config/access -log /dev/stdout -debug 1
 
     profiles:
       - test
@@ -63,7 +63,7 @@ services:
       - 127.0.0.1:${EPICS_CA_SERVER_PORT}:${EPICS_CA_SERVER_PORT}
       - 127.0.0.1:${EPICS_CA_REPEATER_PORT}:${EPICS_CA_REPEATER_PORT}
 
-    command: -cip 172.20.255.255 -pvlist /config/pvlist -access /config/access -log /dev/stdout -debug 1
+    command: -cip ${CA_BROADCAST} -pvlist /config/pvlist -access /config/access -log /dev/stdout -debug 1
 
     profiles:
       - deploy
