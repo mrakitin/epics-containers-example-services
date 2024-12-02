@@ -19,7 +19,7 @@ if [[ $(module avail docker-compose 2>/dev/null) != "" ]] ; then
     module load docker-compose
 fi
 
-# podman is priority, set USE_DOCKER=1 to force docker when both are available
+# podman vs docker differences.
 if podman version &> /dev/null && [[ -z $USE_DOCKER ]] ; then
     USER_ID=0; USER_GID=0
     DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock
