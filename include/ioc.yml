@@ -26,6 +26,13 @@ services:
       IOC_LOCATION: localhost
       BEAMLINE: bl01t
       IOC_GROUP: bl01t
+      # EPICS CA and PVA server ports
+      EPICS_PVA_NAME_SERVERS: ${EPICS_CA_NAME_SERVERS}
+      EPICS_CA_SERVER_PORT: ${EPICS_CA_SERVER_PORT}
+      EPICS_CA_REPEATER_PORT: ${EPICS_CA_REPEATER_PORT}
+      # EPICS_PVA_NAME_SERVERS: ${EPICS_CA_NAME_SERVERS:-127.0.0.1:5075}
+      # EPICS_CA_SERVER_PORT: ${EPICS_CA_SERVER_PORT:-5064}
+      # EPICS_CA_REPEATER_PORT: ${EPICS_CA_REPEATER_PORT:-5065}
 
     tty: true
     stdin_open: true
@@ -39,9 +46,6 @@ services:
 
     networks:
       - channel_access
-    expose:
-      - "5064-5065/udp"
-      - "5064-5065"
 
   # proxy services that each manage an RTEMS hard IOC ##########################
   rtems_ioc:
