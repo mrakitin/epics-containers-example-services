@@ -9,6 +9,8 @@ services:
       - init
     environment:
       DISPLAY: $DISPLAY
+      UIDGID: ${UIDGID:-0:0} # defaults to working with rootless
+
     tty: true
     # pick a server port for phoebus so it does not reconnect to existing phoebus
     command: phoebus-product/phoebus.sh -settings /config/settings.ini -resource /opi/demo.bob -server 7010
