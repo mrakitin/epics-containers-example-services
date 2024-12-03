@@ -9,6 +9,9 @@ services:
 
     image: ghcr.io/epics-containers/ec-p4p:4.1.12ec1
 
+    security_opt:
+      - label=disable
+
     ports:
       - 127.0.0.1:${EPICS_PVA_SERVER_PORT}:${EPICS_PVA_SERVER_PORT}
 
