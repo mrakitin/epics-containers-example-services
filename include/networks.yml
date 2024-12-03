@@ -1,6 +1,5 @@
 networks:
   channel_access:
-    name: "channel_access"
     ipam:
       driver: default
       config:
