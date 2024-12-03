@@ -27,3 +27,22 @@ include:
 
   # deploy profile only
   - services/epics-opis/compose.yml
+
+services:
+  init:
+    image: ubuntu
+    security_opt:
+      - label=disable
+    restart: never
+    volumes:
+      - .:/workspace
+    command: /bin/bash -c "/workspace/include/init.sh"
+    environment:
+      - EPICS_CA_SERVER_PORT
+      - EPICS_CA_REPEATER_PORT
+      - EPICS_PVA_SERVER_PORT
+      - CA_SUBNET
+      - CA_BROADCAST
+      - EPICS_PVA_NAME_SERVERS
+      - EPICS_CA_NAME_SERVERS
+      - EPICS_CA_ADDR_LIST

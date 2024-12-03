@@ -5,8 +5,12 @@ services:
   phoebus:
     container_name: phoebus
     image: ghcr.io/epics-containers/ec-phoebus:4.7.3ec2
+    depends_on:
+      - init
     environment:
       DISPLAY: $DISPLAY
+      UIDGID: ${UIDGID:-0:0} # defaults to working with rootless
+
     tty: true
     # pick a server port for phoebus so it does not reconnect to existing phoebus
     command: phoebus-product/phoebus.sh -settings /config/settings.ini -resource /opi/demo.bob -server 7010
