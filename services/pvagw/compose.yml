@@ -9,6 +9,9 @@ services:
 
     image: ghcr.io/epics-containers/ec-p4p:4.1.12ec1
 
+    depends_on:
+      - init
+
     security_opt:
       - label=disable
 

@@ -7,39 +7,11 @@
 # docker compose may be backed by podman or docker container engines, see
 # https://epics-containers.github.io/main/tutorials/setup_workstation.html.
 
-
 # This script must be sourced
 if [ "$0" = "$BASH_SOURCE" ]; then
     echo "ERROR: Please source this script (source ./environment.sh)"
     exit 1
 fi
-
-# Environment variables for the EPICS IOC ports. Pick a Unique BASE
-# to allow multiple compose beamlines to run on the same host.
-# BASE values should be separated by 20.
-#
-BASE=5094 # default would usually be 5064
-#
-export EPICS_CA_SERVER_PORT=$BASE # default 5064
-export EPICS_CA_REPEATER_PORT=$(( $BASE + 1 )) # default 5065
-export EPICS_PVA_SERVER_PORT=$(( $BASE + 11 )) # default 5075
-
-export CA_SUBNET=170.$(( $BASE % 256 )).0.0/16
-export CA_BROADCAST=170.$(( $BASE % 256 )).255.255
-
-export EPICS_PVA_NAME_SERVERS=localhost:${EPICS_PVA_SERVER_PORT}
-export EPICS_CA_NAME_SERVERS=localhost:${EPICS_CA_SERVER_PORT}
-
-export EPICS_CA_ADDR_LIST=127.0.0.1
-
-# update configuration files that depend on the above environment variables
-cat services/phoebus/config/settings.template |
-  sed -e "s/5064/$EPICS_CA_SERVER_PORT/g" \
-      -e "s/5065/$EPICS_CA_REPEATER_PORT/g" \
-      -e "s/5075/$EPICS_PVA_SERVER_PORT/g" > services/phoebus/config/settings.ini
-cat services/pvagw/config/pvagw.template |
-  sed -e "s/172.20.255.255/$CA_BROADCAST/g" \
-      -e "s/5075/$EPICS_PVA_SERVER_PORT/g" > services/pvagw/config/pvagw.config
 
 # if there is a docker-compose module then load it
 if [[ $(module avail docker-compose 2>/dev/null) != "" ]] ; then
@@ -65,7 +37,7 @@ xhost +SI:localuser:$(id -un)
 
 # set user id for the phoebus container for easy X11 forwarding.
 export UIDGID=$USER_ID:$USER_GID
-# choose test profile for docker compose
+# default to the test profile for docker compose
 export COMPOSE_PROFILES=test
 # for test profile our ca-gateway publishes PVS on the loopback interface
 export EPICS_CA_ADDR_LIST=127.0.0.1
