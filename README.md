@@ -64,12 +64,12 @@ You can now try the following (we use `dc` as a short alias for `docker compose`
 
 ```bash
 # use caget/put locally
-export EPICS_CA_ADDR_LIST=127.0.0.1
+export EPICS_CA_ADDR_LIST=127.0.0.1:5094
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # OR if you don't have caget/put locally then use one of the containers instead:
 docker compose exec bl01t-ea-test-01 bash
-export EPICS_CA_ADDR_LIST=127.0.0.1
+export EPICS_CA_ADDR_LIST=127.0.0.1:5094
 caget BL01T-DI-CAM-01:DET:Acquire_RBV
 
 # attach to logs of a service (-f follows the logs, use ctrl-c to exit)
