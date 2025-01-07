@@ -13,7 +13,7 @@ services:
 
     container_name: ca-gateway
 
-    image: ghcr.io/epics-containers/docker-ca-gateway:2.1.3ec1
+    image: ghcr.io/epics-containers/gateways-developer:2024.12.3
 
     security_opt:
       - label=disable
@@ -37,7 +37,13 @@ services:
       - source: ca-gateway_config
         target: /config
 
-    command: -cip ${CA_BROADCAST} -pvlist /config/pvlist -access /config/access -log /dev/stdout -debug 1
+    command:
+      - bash
+      - -c
+      - >
+        /epics/ca-gateway/bin/linux-x86_64/gateway
+        -cip ${CA_BROADCAST} -pvlist /config/pvlist
+        -access /config/access -log /dev/stdout -debug 1
 
     profiles:
       - test
