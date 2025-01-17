@@ -14,19 +14,52 @@ entities:
 
   - type: motorSim.simMotorController
     controllerName: sim-controller1
-    numAxes: 3
-    P: "BL01T-MO-SIMC-01:"
+    numAxes: 4 
+    P: "XF:11BMB-ES{Chm:Smpl-Ax:"
 
   - type: motorSim.simMotorAxis
     controller: sim-controller1
-    ADDR: 1
-    M: M1
-    DESC: Motor 1
+    ADDR: 1 
+    M: X}Mtr
+    DESC: Motor X
     home: 1
 
   - type: motorSim.simMotorAxis
     controller: sim-controller1
-    ADDR: 2
-    M: M2
-    DESC: Motor 2
-    home: 2
+    ADDR: 2 
+    M: Z}Mtr
+    DESC: Motor Z
+    home: 1
+
+  - type: motorSim.simMotorAxis
+    controller: sim-controller1
+    ADDR: 3 
+    M: theta}Mtr
+    DESC: Motor theta
+    home: 1
+
+  - type: motorSim.simMotorController
+    controllerName: sim-controller2
+    numAxes: 4 
+    P: "XF:11BMB-ES{BS-Ax:"
+
+  - type: motorSim.simMotorAxis
+    controller: sim-controller2
+    ADDR: 1 
+    M: X}Mtr
+    DESC: Motor X
+    home: 1
+
+  - type: motorSim.simMotorAxis
+    controller: sim-controller2
+    ADDR: 2 
+    M: Y}Mtr
+    DESC: Motor Y
+    home: 1
+
+  - type: motorSim.simMotorAxis
+    controller: sim-controller2
+    ADDR: 3 
+    M: Phi}Mtr
+    DESC: Motor phi
+    home: 1

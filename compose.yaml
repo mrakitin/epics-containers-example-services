@@ -23,7 +23,7 @@ include:
   - services/pvagw/compose.yml
 
   # develop profile only
-  - services/phoebus/compose.yml
+  #- services/phoebus/compose.yml
 
   # deploy profile only
   - services/epics-opis/compose.yml
