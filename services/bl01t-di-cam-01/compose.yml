@@ -18,7 +18,7 @@ services:
 
     volumes:
       - ../../opi/auto-generated/bl01t-di-cam-01:/epics/opi
-      - /tmp/data:/data
+      - ../../pilatus-data/:/nsls2/
 
     command: /epics/ioc/start.sh
 

@@ -21,11 +21,19 @@ entities:
       dbpf XF:11BMB-ES{Det:PIL2M}:cam1:AcquireTime 0.1
       dbpf XF:11BMB-ES{Det:PIL2M}:image1:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:Proc1:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Trans1:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:ROI1:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:ROI2:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:ROI3:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:ROI4:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Stats1:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Stats2:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Stats3:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Stats4:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:Stats5:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:PVA:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:HDF1:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:TIFF1:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:cam1:Acquire 1
 
   - type: ADCore.NDROI
@@ -56,6 +64,12 @@ entities:
     PORT: PROC1
     P: "XF:11BMB-ES{Det:PIL2M}"
     R: ":Proc1:"
+    NDARRAY_PORT: PIL
+
+  - type: ADCore.NDTransform
+    PORT: TRANS1
+    P: "XF:11BMB-ES{Det:PIL2M}"
+    R: ":Trans1:"
     NDARRAY_PORT: PIL
 
   - type: ADCore.NDPvaPlugin
@@ -105,6 +119,15 @@ entities:
     PORT: Stats4
     P: "XF:11BMB-ES{Det:PIL2M}"
     R: ":Stats4:"
+    NDARRAY_PORT: PIL
+    XSIZE: 1024
+    YSIZE: 1024
+    HIST_SIZE: 20
+
+  - type: ADCore.NDStats
+    PORT: Stats5
+    P: "XF:11BMB-ES{Det:PIL2M}"
+    R: ":Stats5:"
     NDARRAY_PORT: PIL
     XSIZE: 1024
     YSIZE: 1024

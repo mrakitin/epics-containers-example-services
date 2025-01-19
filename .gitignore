@@ -14,3 +14,5 @@ opi/auto-generated/*
 # when sourcing environment.sh
 services/pvagw/config/pvagw.config
 services/phoebus/config/settings.ini
+
+pilatus-data/
