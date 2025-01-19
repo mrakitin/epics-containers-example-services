@@ -5,6 +5,7 @@ services:
   phoebus:
     container_name: phoebus
     image: ghcr.io/epics-containers/ec-phoebus:4.7.3ec2
+    platform: linux/amd64
     depends_on:
       - init
     environment:

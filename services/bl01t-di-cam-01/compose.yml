@@ -7,7 +7,7 @@ services:
       file: ../../include/ioc.yml
 
     image: ghcr.io/epics-containers/ioc-adsimdetector-runtime:2024.7.2b2
-
+    platform: linux/amd64
     labels:
       version: 0.1.0
 
@@ -18,6 +18,7 @@ services:
 
     volumes:
       - ../../opi/auto-generated/bl01t-di-cam-01:/epics/opi
+      - /tmp/data:/data
 
     command: /epics/ioc/start.sh
 
