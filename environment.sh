@@ -44,4 +44,5 @@ export EPICS_CA_ADDR_LIST="127.0.0.1:5094 127.0.0.1"
 # make a short alias for docker-compose for convenience
 alias dc='$docker compose'
 
+# Per https://stackoverflow.com/questions/72586838/xquartz-cant-open-display-mac-os:
 export DISPLAY="$(/usr/sbin/ipconfig getifaddr en0):0"
