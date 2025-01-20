@@ -34,6 +34,16 @@ entities:
       dbpf XF:11BMB-ES{Det:PIL2M}:PVA:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:HDF1:EnableCallbacks 1
       dbpf XF:11BMB-ES{Det:PIL2M}:TIFF1:EnableCallbacks 1
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:SimMode Peaks
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakStartX 450
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakStartY 450
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakNumX 50
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakNumY 50
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakStepX 2
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakStepY 2
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakWidthX 5
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakWidthY 5
+      dbpf XF:11BMB-ES{Det:PIL2M}:cam1:PeakVariation 6
       dbpf XF:11BMB-ES{Det:PIL2M}:cam1:Acquire 1
 
   - type: ADCore.NDROI
