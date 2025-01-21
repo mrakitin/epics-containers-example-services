@@ -5,6 +5,7 @@ services:
   phoebus:
     container_name: phoebus
     image: ghcr.io/epics-containers/ec-phoebus:4.7.3ec2
+    platform: linux/amd64
     depends_on:
       - init
     environment:
@@ -16,6 +17,7 @@ services:
     command: phoebus-product/phoebus.sh -settings /config/settings.ini -resource /opi/demo.bob -server 7010
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority:Z
       - ../../opi:/opi
       - ../../..:/workspaces
 

@@ -9,6 +9,7 @@ services:
 
   epics-opis:
     image: docker.io/nginx:1.27
+    platform: linux/amd64
 
     restart: unless-stopped
 

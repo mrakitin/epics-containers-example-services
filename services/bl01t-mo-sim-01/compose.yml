@@ -7,6 +7,7 @@ services:
       file: ../../include/ioc.yml
 
     image: ghcr.io/epics-containers/ioc-motorsim-runtime:2024.9.1
+    platform: linux/amd64
 
     labels:
       version: 0.1.0

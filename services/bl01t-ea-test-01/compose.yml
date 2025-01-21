@@ -7,6 +7,7 @@ services:
       file: ../../include/ioc.yml
 
     image: ghcr.io/epics-containers/ioc-template-example-runtime:3.5.1
+    platform: linux/amd64
 
     labels:
       version: 0.1.0
