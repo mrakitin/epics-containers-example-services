@@ -31,7 +31,7 @@ fi
 echo using $docker as container engine
 
 # ensure local container users can access X11 server
-xhost +SI:localuser:$(id -un)
+xhost +SI:localuser:$(id -un) || echo "No xhost command available. Continuing..."
 
 # Set up the environment for compose ###########################################
 
@@ -45,4 +45,4 @@ export EPICS_CA_ADDR_LIST="127.0.0.1:5094 127.0.0.1"
 alias dc='$docker compose'
 
 # Per https://stackoverflow.com/questions/72586838/xquartz-cant-open-display-mac-os:
-export DISPLAY="$(/usr/sbin/ipconfig getifaddr en0):0"
+export DISPLAY="$(/usr/sbin/ipconfig getifaddr en0):0" || echo "No DISPLAY is set. Continuing..."

@@ -16,3 +16,8 @@ services/pvagw/config/pvagw.config
 services/phoebus/config/settings.ini
 
 pilatus-data/
+
+# Potential artifacts from starting IPython in a wrong directory:
+startup/
+.DS_Store
+history.sqlite
