@@ -22,11 +22,11 @@ include:
   - services/gateway/compose.yml
   - services/pvagw/compose.yml
 
-  # # develop profile only
-  # - services/phoebus/compose.yml
+  # develop profile only
+  - services/phoebus/compose.yml
 
-  # # deploy profile only
-  # - services/epics-opis/compose.yml
+  # deploy profile only
+  - services/epics-opis/compose.yml
 
 services:
   init:
